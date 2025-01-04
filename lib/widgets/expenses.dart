@@ -3,7 +3,6 @@ import 'package:expense_tracker/models/expense.dart';
 import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 
 class Expenses extends StatefulWidget {
-
   const Expenses({super.key});
 
   @override
@@ -13,10 +12,17 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
-
   final List<Expense> _registeredExpenses = [
-    Expense(title: 'Flutter Course', amount: 19.99, date: DateTime.now(), category: Category.work),
-    Expense(title: 'Cinema', amount: 15.6, date: DateTime.now(), category: Category.leisure),
+    Expense(
+        title: 'Flutter Course',
+        amount: 19.99,
+        date: DateTime.now(),
+        category: Category.work),
+    Expense(
+        title: 'Cinema',
+        amount: 15.6,
+        date: DateTime.now(),
+        category: Category.leisure),
   ];
 
   @override
@@ -25,10 +31,12 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children: [
           Text('The chart'),
-          ExpensesList(expenses: _registeredExpenses,),
+          Expanded(
+              child: ExpensesList(
+            expenses: _registeredExpenses,
+          )),
         ],
       ),
     );
-
   }
 }
